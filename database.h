@@ -17,6 +17,7 @@ public:
     explicit DataBase(QObject *parent = nullptr);
 
     bool connect(const QString& database,
+                 const QString& type,
                  const QString& host,
                  const QString& username,
                  const QString& password,

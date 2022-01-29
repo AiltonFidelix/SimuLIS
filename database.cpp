@@ -10,6 +10,7 @@ DataBase::DataBase(QObject *parent) : QObject(parent)
  * @date  01-25-2022
  * @note  Função para conexão ao banco de dados Lwsde3
  * @param database Nome do banco de dados
+ * @param type Tipoe do drive
  * @param host Endereço host do banco
  * @param username Usuário do banco
  * @param password Senha do usuário
@@ -17,12 +18,13 @@ DataBase::DataBase(QObject *parent) : QObject(parent)
  * @return Retorna se houve sucesso ao conectar ao banco de dados
 */
 bool DataBase::connect(const QString& database,
+                       const QString& type,
                        const QString& host,
                        const QString& username,
                        const QString& password,
                        const int& port)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+    QSqlDatabase db = QSqlDatabase::addDatabase(type);
     db.setHostName(host);
     db.setDatabaseName(database);
     db.setUserName(username);
@@ -137,6 +139,9 @@ bool DataBase::cleanTables()
     query.prepare("CREATE SCHEMA public");
 
     bool create = query.exec();
+
+    if(!(drop && create))
+        m_errorMessage = query.lastError().text();
 
     return drop && create;
 }

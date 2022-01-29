@@ -2,6 +2,8 @@
 #define DBCONFIG_H
 
 #include <QDialog>
+#include <QMessageBox>
+#include "config.h"
 
 namespace Ui {
 class DbConfig;
@@ -18,8 +20,15 @@ public:
 protected:
     void changeEvent(QEvent *e);
 
+private slots:
+    void on_pushButtonCancel_clicked();
+
+    void on_pushButtonSave_clicked();
+
 private:
     Ui::DbConfig *ui;
+    Config m_config;
+    QHash<QString, QString> m_data;
 };
 
 #endif // DBCONFIG_H

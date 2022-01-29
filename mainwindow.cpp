@@ -7,7 +7,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    if(m_db.connect("lwsde3", "localhost", "labwide", "dDeiVH", 5432)){
+    Config data;
+
+    QHash<QString, QString> c = data.getConfig();
+
+    if(m_db.connect(c["database"], c["type"], c["host"], c["username"], c["password"], c["port"].toInt())){
         ui->statusbar->showMessage("Conectado ao banco: lwsde3");
     }
     else{
@@ -60,7 +64,7 @@ void MainWindow::on_pushButtonSend_clicked()
     solicitation["lisMat"] = ui->lineEditCodMat->text();
 
     if(m_db.solicitation(solicitation))
-        QMessageBox::information(this, "Solicitação", "Pedido solicitado com sucesso!");
+        QMessageBox::information(this, "Sucesso", "Pedido solicitado com sucesso!");
     else {
         QString message = "Erro: " + m_db.errorMessage();
         QMessageBox::warning(this, "Erro", message);

@@ -69,7 +69,7 @@ public:
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->setWindowModality(Qt::NonModal);
         MainWindow->setEnabled(true);
-        MainWindow->resize(422, 396);
+        MainWindow->resize(427, 392);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -229,7 +229,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 422, 22));
+        menubar->setGeometry(QRect(0, 0, 427, 22));
         menuConfigura_es = new QMenu(menubar);
         menuConfigura_es->setObjectName(QString::fromUtf8("menuConfigura_es"));
         menuSobre = new QMenu(menubar);
