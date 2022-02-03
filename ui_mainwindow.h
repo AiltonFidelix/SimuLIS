@@ -34,30 +34,43 @@ public:
     QAction *actionBanco_de_Dados;
     QAction *actionSobre;
     QWidget *centralwidget;
-    QWidget *layoutWidget;
+    QWidget *widget;
     QVBoxLayout *verticalLayout;
+    QSpacerItem *verticalSpacer_4;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *labelData;
+    QSpacerItem *horizontalSpacer_3;
+    QSpacerItem *verticalSpacer_8;
+    QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout;
     QLabel *labelName;
     QLineEdit *lineEditName;
-    QHBoxLayout *horizontalLayout_7;
     QLabel *labelSex;
     QComboBox *comboBoxSex;
+    QSpacerItem *verticalSpacer_5;
     QHBoxLayout *horizontalLayout_2;
     QLabel *labelId;
     QLineEdit *lineEditId;
+    QLabel *labelCodSol;
+    QLineEdit *lineEditCodSol;
+    QSpacerItem *verticalSpacer_6;
     QHBoxLayout *horizontalLayout_3;
+    QLabel *label_3;
+    QLineEdit *lineEditCodAmo;
     QLabel *labelCodExam;
     QLineEdit *lineEditCodExam;
+    QSpacerItem *verticalSpacer_7;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label;
     QLineEdit *lineEditCodVer;
-    QHBoxLayout *horizontalLayout_5;
     QLabel *label_2;
     QLineEdit *lineEditCodMat;
+    QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_6;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *pushButtonSend;
     QSpacerItem *horizontalSpacer;
+    QSpacerItem *verticalSpacer_3;
     QMenuBar *menubar;
     QMenu *menuConfigura_es;
     QMenu *menuSobre;
@@ -69,13 +82,13 @@ public:
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->setWindowModality(Qt::NonModal);
         MainWindow->setEnabled(true);
-        MainWindow->resize(422, 396);
+        MainWindow->resize(620, 360);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
-        MainWindow->setMaximumSize(QSize(600, 600));
+        MainWindow->setMaximumSize(QSize(800, 800));
         MainWindow->setBaseSize(QSize(0, 0));
         MainWindow->setContextMenuPolicy(Qt::NoContextMenu);
         QIcon icon;
@@ -90,54 +103,80 @@ public:
         actionSobre->setObjectName(QString::fromUtf8("actionSobre"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        layoutWidget = new QWidget(centralwidget);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 20, 381, 321));
-        verticalLayout = new QVBoxLayout(layoutWidget);
+        widget = new QWidget(centralwidget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(12, 0, 588, 311));
+        verticalLayout = new QVBoxLayout(widget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_4);
+
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        labelData = new QLabel(widget);
+        labelData->setObjectName(QString::fromUtf8("labelData"));
+
+        horizontalLayout_5->addWidget(labelData);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_5->addItem(horizontalSpacer_3);
+
+
+        verticalLayout->addLayout(horizontalLayout_5);
+
+        verticalSpacer_8 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_8);
+
+        verticalSpacer_2 = new QSpacerItem(586, 17, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_2);
+
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        labelName = new QLabel(layoutWidget);
+        labelName = new QLabel(widget);
         labelName->setObjectName(QString::fromUtf8("labelName"));
-        labelName->setMinimumSize(QSize(130, 0));
-        labelName->setMaximumSize(QSize(130, 16777215));
+        labelName->setMinimumSize(QSize(50, 0));
+        labelName->setMaximumSize(QSize(50, 16777215));
 
         horizontalLayout->addWidget(labelName);
 
-        lineEditName = new QLineEdit(layoutWidget);
+        lineEditName = new QLineEdit(widget);
         lineEditName->setObjectName(QString::fromUtf8("lineEditName"));
-        lineEditName->setMinimumSize(QSize(150, 0));
-        lineEditName->setMaximumSize(QSize(150, 16777215));
+        lineEditName->setMinimumSize(QSize(410, 0));
+        lineEditName->setMaximumSize(QSize(410, 16777215));
 
         horizontalLayout->addWidget(lineEditName);
+
+        labelSex = new QLabel(widget);
+        labelSex->setObjectName(QString::fromUtf8("labelSex"));
+        labelSex->setMinimumSize(QSize(50, 0));
+        labelSex->setMaximumSize(QSize(50, 16777215));
+
+        horizontalLayout->addWidget(labelSex);
+
+        comboBoxSex = new QComboBox(widget);
+        comboBoxSex->addItem(QString());
+        comboBoxSex->addItem(QString());
+        comboBoxSex->setObjectName(QString::fromUtf8("comboBoxSex"));
+        comboBoxSex->setMinimumSize(QSize(50, 0));
+        comboBoxSex->setMaximumSize(QSize(50, 16777215));
+
+        horizontalLayout->addWidget(comboBoxSex);
 
 
         verticalLayout->addLayout(horizontalLayout);
 
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        labelSex = new QLabel(layoutWidget);
-        labelSex->setObjectName(QString::fromUtf8("labelSex"));
-        labelSex->setMinimumSize(QSize(130, 0));
-        labelSex->setMaximumSize(QSize(130, 16777215));
+        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout_7->addWidget(labelSex);
-
-        comboBoxSex = new QComboBox(layoutWidget);
-        comboBoxSex->addItem(QString());
-        comboBoxSex->addItem(QString());
-        comboBoxSex->setObjectName(QString::fromUtf8("comboBoxSex"));
-        comboBoxSex->setMaximumSize(QSize(150, 16777215));
-
-        horizontalLayout_7->addWidget(comboBoxSex);
-
-
-        verticalLayout->addLayout(horizontalLayout_7);
+        verticalLayout->addItem(verticalSpacer_5);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        labelId = new QLabel(layoutWidget);
+        labelId = new QLabel(widget);
         labelId->setObjectName(QString::fromUtf8("labelId"));
         labelId->setMinimumSize(QSize(130, 0));
         labelId->setMaximumSize(QSize(130, 16777215));
@@ -145,26 +184,60 @@ public:
 
         horizontalLayout_2->addWidget(labelId);
 
-        lineEditId = new QLineEdit(layoutWidget);
+        lineEditId = new QLineEdit(widget);
         lineEditId->setObjectName(QString::fromUtf8("lineEditId"));
+        lineEditId->setMinimumSize(QSize(150, 0));
         lineEditId->setMaximumSize(QSize(150, 16777215));
 
         horizontalLayout_2->addWidget(lineEditId);
 
+        labelCodSol = new QLabel(widget);
+        labelCodSol->setObjectName(QString::fromUtf8("labelCodSol"));
+        labelCodSol->setMinimumSize(QSize(130, 0));
+        labelCodSol->setMaximumSize(QSize(130, 16777215));
+
+        horizontalLayout_2->addWidget(labelCodSol);
+
+        lineEditCodSol = new QLineEdit(widget);
+        lineEditCodSol->setObjectName(QString::fromUtf8("lineEditCodSol"));
+        lineEditCodSol->setMinimumSize(QSize(150, 0));
+        lineEditCodSol->setMaximumSize(QSize(150, 16777215));
+
+        horizontalLayout_2->addWidget(lineEditCodSol);
+
 
         verticalLayout->addLayout(horizontalLayout_2);
 
+        verticalSpacer_6 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_6);
+
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        labelCodExam = new QLabel(layoutWidget);
+        label_3 = new QLabel(widget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setMinimumSize(QSize(130, 0));
+        label_3->setMaximumSize(QSize(130, 16777215));
+
+        horizontalLayout_3->addWidget(label_3);
+
+        lineEditCodAmo = new QLineEdit(widget);
+        lineEditCodAmo->setObjectName(QString::fromUtf8("lineEditCodAmo"));
+        lineEditCodAmo->setMinimumSize(QSize(150, 0));
+        lineEditCodAmo->setMaximumSize(QSize(150, 16777215));
+
+        horizontalLayout_3->addWidget(lineEditCodAmo);
+
+        labelCodExam = new QLabel(widget);
         labelCodExam->setObjectName(QString::fromUtf8("labelCodExam"));
         labelCodExam->setMinimumSize(QSize(130, 0));
         labelCodExam->setMaximumSize(QSize(130, 16777215));
 
         horizontalLayout_3->addWidget(labelCodExam);
 
-        lineEditCodExam = new QLineEdit(layoutWidget);
+        lineEditCodExam = new QLineEdit(widget);
         lineEditCodExam->setObjectName(QString::fromUtf8("lineEditCodExam"));
+        lineEditCodExam->setMinimumSize(QSize(150, 0));
         lineEditCodExam->setMaximumSize(QSize(150, 16777215));
 
         horizontalLayout_3->addWidget(lineEditCodExam);
@@ -172,41 +245,46 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_3);
 
+        verticalSpacer_7 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_7);
+
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        label = new QLabel(layoutWidget);
+        label = new QLabel(widget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(130, 0));
         label->setMaximumSize(QSize(130, 16777215));
 
         horizontalLayout_4->addWidget(label);
 
-        lineEditCodVer = new QLineEdit(layoutWidget);
+        lineEditCodVer = new QLineEdit(widget);
         lineEditCodVer->setObjectName(QString::fromUtf8("lineEditCodVer"));
+        lineEditCodVer->setMinimumSize(QSize(150, 0));
         lineEditCodVer->setMaximumSize(QSize(150, 16777215));
 
         horizontalLayout_4->addWidget(lineEditCodVer);
 
-
-        verticalLayout->addLayout(horizontalLayout_4);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        label_2 = new QLabel(layoutWidget);
+        label_2 = new QLabel(widget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setMinimumSize(QSize(130, 0));
         label_2->setMaximumSize(QSize(130, 16777215));
 
-        horizontalLayout_5->addWidget(label_2);
+        horizontalLayout_4->addWidget(label_2);
 
-        lineEditCodMat = new QLineEdit(layoutWidget);
+        lineEditCodMat = new QLineEdit(widget);
         lineEditCodMat->setObjectName(QString::fromUtf8("lineEditCodMat"));
+        lineEditCodMat->setMinimumSize(QSize(150, 0));
         lineEditCodMat->setMaximumSize(QSize(150, 16777215));
 
-        horizontalLayout_5->addWidget(lineEditCodMat);
+        horizontalLayout_4->addWidget(lineEditCodMat);
 
 
-        verticalLayout->addLayout(horizontalLayout_5);
+        verticalLayout->addLayout(horizontalLayout_4);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
@@ -214,7 +292,7 @@ public:
 
         horizontalLayout_6->addItem(horizontalSpacer_2);
 
-        pushButtonSend = new QPushButton(layoutWidget);
+        pushButtonSend = new QPushButton(widget);
         pushButtonSend->setObjectName(QString::fromUtf8("pushButtonSend"));
 
         horizontalLayout_6->addWidget(pushButtonSend);
@@ -226,10 +304,14 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_6);
 
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_3);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 422, 22));
+        menubar->setGeometry(QRect(0, 0, 620, 22));
         menuConfigura_es = new QMenu(menubar);
         menuConfigura_es->setObjectName(QString::fromUtf8("menuConfigura_es"));
         menuSobre = new QMenu(menubar);
@@ -255,12 +337,15 @@ public:
         MainWindow->setWindowFilePath(QString());
         actionBanco_de_Dados->setText(QApplication::translate("MainWindow", "Banco de Dados", nullptr));
         actionSobre->setText(QApplication::translate("MainWindow", "Sobre", nullptr));
+        labelData->setText(QApplication::translate("MainWindow", "<b>Dados da solicita\303\247\303\243o</b>", nullptr));
         labelName->setText(QApplication::translate("MainWindow", "<b>Nome:</b>", nullptr));
         labelSex->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Sexo:</span></p></body></html>", nullptr));
         comboBoxSex->setItemText(0, QApplication::translate("MainWindow", "M", nullptr));
         comboBoxSex->setItemText(1, QApplication::translate("MainWindow", "F", nullptr));
 
         labelId->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">ID:                  </span></p></body></html>", nullptr));
+        labelCodSol->setText(QApplication::translate("MainWindow", "<b>C\303\263d. Solicita\303\247\303\243o:</b>", nullptr));
+        label_3->setText(QApplication::translate("MainWindow", "<b>C\303\263d. Amostra:</b>", nullptr));
         labelCodExam->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">C\303\263d. Exame LIS:</span></p></body></html>", nullptr));
         label->setText(QApplication::translate("MainWindow", "<b>C\303\263d. Vers\303\243o LIS:</b>", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "<b>C\303\263d. Material LIS:</b>", nullptr));

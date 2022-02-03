@@ -16,21 +16,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    config.cpp \
-    database.cpp \
-    dbconfig.cpp \
-    main.cpp \
-    mainwindow.cpp
+    src/config.cpp \
+    src/database.cpp \
+    src/dbconfig.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp
 
 HEADERS += \
-    config.h \
-    database.h \
-    dbconfig.h \
-    mainwindow.h
+    src/config.h \
+    src/database.h \
+    src/dbconfig.h \
+    src/mainwindow.h
 
 FORMS += \
-    dbconfig.ui \
-    mainwindow.ui
+    forms/dbconfig.ui \
+    forms/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
