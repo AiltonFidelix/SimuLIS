@@ -371,7 +371,6 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: resources.qrc \
 		/usr/lib/qt5/bin/rcc \
-		config/config.json \
 		img/icon.png
 	/usr/lib/qt5/bin/rcc -name resources resources.qrc -o qrc_resources.cpp
 
@@ -395,6 +394,7 @@ moc_database.cpp: database.h \
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ailton/Documents/Projects/My Projects/SimuLIS/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ailton/Documents/Projects/My Projects/SimuLIS' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include database.h -o moc_database.cpp
 
 moc_dbconfig.cpp: dbconfig.h \
+		config.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ailton/Documents/Projects/My Projects/SimuLIS/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ailton/Documents/Projects/My Projects/SimuLIS' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dbconfig.h -o moc_dbconfig.cpp
@@ -402,6 +402,7 @@ moc_dbconfig.cpp: dbconfig.h \
 moc_mainwindow.cpp: mainwindow.h \
 		database.h \
 		dbconfig.h \
+		config.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ailton/Documents/Projects/My Projects/SimuLIS/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ailton/Documents/Projects/My Projects/SimuLIS' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
@@ -438,17 +439,20 @@ database.o: database.cpp database.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o database.o database.cpp
 
 dbconfig.o: dbconfig.cpp dbconfig.h \
+		config.h \
 		ui_dbconfig.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbconfig.o dbconfig.cpp
 
 main.o: main.cpp mainwindow.h \
 		database.h \
-		dbconfig.h
+		dbconfig.h \
+		config.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
 		database.h \
 		dbconfig.h \
+		config.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
