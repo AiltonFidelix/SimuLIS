@@ -13,20 +13,20 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_DbConfig
 {
 public:
-    QWidget *layoutWidget;
+    QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label;
@@ -60,15 +60,13 @@ public:
         if (DbConfig->objectName().isEmpty())
             DbConfig->setObjectName(QString::fromUtf8("DbConfig"));
         DbConfig->resize(400, 291);
-        layoutWidget = new QWidget(DbConfig);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 10, 360, 271));
-        verticalLayout = new QVBoxLayout(layoutWidget);
+        gridLayout = new QGridLayout(DbConfig);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        label = new QLabel(layoutWidget);
+        label = new QLabel(DbConfig);
         label->setObjectName(QString::fromUtf8("label"));
 
         horizontalLayout_7->addWidget(label);
@@ -86,14 +84,14 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        labelCon = new QLabel(layoutWidget);
+        labelCon = new QLabel(DbConfig);
         labelCon->setObjectName(QString::fromUtf8("labelCon"));
         labelCon->setMinimumSize(QSize(100, 0));
         labelCon->setMaximumSize(QSize(100, 16777215));
 
         horizontalLayout->addWidget(labelCon);
 
-        comboBoxCom = new QComboBox(layoutWidget);
+        comboBoxCom = new QComboBox(DbConfig);
         comboBoxCom->addItem(QString());
         comboBoxCom->addItem(QString());
         comboBoxCom->setObjectName(QString::fromUtf8("comboBoxCom"));
@@ -107,14 +105,14 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        labelUser = new QLabel(layoutWidget);
+        labelUser = new QLabel(DbConfig);
         labelUser->setObjectName(QString::fromUtf8("labelUser"));
         labelUser->setMinimumSize(QSize(100, 0));
         labelUser->setMaximumSize(QSize(100, 16777215));
 
         horizontalLayout_2->addWidget(labelUser);
 
-        lineEditUser = new QLineEdit(layoutWidget);
+        lineEditUser = new QLineEdit(DbConfig);
         lineEditUser->setObjectName(QString::fromUtf8("lineEditUser"));
         lineEditUser->setMinimumSize(QSize(250, 0));
         lineEditUser->setMaximumSize(QSize(250, 16777215));
@@ -126,14 +124,14 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        labelPass = new QLabel(layoutWidget);
+        labelPass = new QLabel(DbConfig);
         labelPass->setObjectName(QString::fromUtf8("labelPass"));
         labelPass->setMinimumSize(QSize(100, 0));
         labelPass->setMaximumSize(QSize(100, 16777215));
 
         horizontalLayout_3->addWidget(labelPass);
 
-        lineEditPass = new QLineEdit(layoutWidget);
+        lineEditPass = new QLineEdit(DbConfig);
         lineEditPass->setObjectName(QString::fromUtf8("lineEditPass"));
         lineEditPass->setMinimumSize(QSize(250, 0));
         lineEditPass->setMaximumSize(QSize(250, 16777215));
@@ -146,14 +144,14 @@ public:
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        labelHost = new QLabel(layoutWidget);
+        labelHost = new QLabel(DbConfig);
         labelHost->setObjectName(QString::fromUtf8("labelHost"));
         labelHost->setMinimumSize(QSize(100, 0));
         labelHost->setMaximumSize(QSize(100, 16777215));
 
         horizontalLayout_4->addWidget(labelHost);
 
-        lineEditHost = new QLineEdit(layoutWidget);
+        lineEditHost = new QLineEdit(DbConfig);
         lineEditHost->setObjectName(QString::fromUtf8("lineEditHost"));
         lineEditHost->setMinimumSize(QSize(250, 0));
         lineEditHost->setMaximumSize(QSize(250, 16777215));
@@ -165,14 +163,14 @@ public:
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        labelDb = new QLabel(layoutWidget);
+        labelDb = new QLabel(DbConfig);
         labelDb->setObjectName(QString::fromUtf8("labelDb"));
         labelDb->setMinimumSize(QSize(100, 0));
         labelDb->setMaximumSize(QSize(100, 16777215));
 
         horizontalLayout_5->addWidget(labelDb);
 
-        lineEditDb = new QLineEdit(layoutWidget);
+        lineEditDb = new QLineEdit(DbConfig);
         lineEditDb->setObjectName(QString::fromUtf8("lineEditDb"));
         lineEditDb->setMinimumSize(QSize(250, 0));
         lineEditDb->setMaximumSize(QSize(250, 16777215));
@@ -188,7 +186,7 @@ public:
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        pushButtonClean = new QPushButton(layoutWidget);
+        pushButtonClean = new QPushButton(DbConfig);
         pushButtonClean->setObjectName(QString::fromUtf8("pushButtonClean"));
         pushButtonClean->setFocusPolicy(Qt::NoFocus);
 
@@ -198,12 +196,12 @@ public:
 
         horizontalLayout_6->addItem(horizontalSpacer);
 
-        pushButtonSave = new QPushButton(layoutWidget);
+        pushButtonSave = new QPushButton(DbConfig);
         pushButtonSave->setObjectName(QString::fromUtf8("pushButtonSave"));
 
         horizontalLayout_6->addWidget(pushButtonSave);
 
-        pushButtonCancel = new QPushButton(layoutWidget);
+        pushButtonCancel = new QPushButton(DbConfig);
         pushButtonCancel->setObjectName(QString::fromUtf8("pushButtonCancel"));
 
         horizontalLayout_6->addWidget(pushButtonCancel);
@@ -214,6 +212,9 @@ public:
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer_2);
+
+
+        gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
 
 
         retranslateUi(DbConfig);

@@ -28,7 +28,7 @@ void MainWindow::on_actionSobre_triggered()
     infoMSG->setText("Este software simula uma solicitação\n"
                      "de exame vinda de um sistema LIS.\n\n"
                      "Autor: Ailton Fidelix\n"
-                     "Versão: 1.0.0");
+                     "Versão: 1.0.1");
     infoMSG->addButton(QMessageBox::Ok)->setMinimumSize(80,30);
     infoMSG->exec();
 }
@@ -58,12 +58,23 @@ void MainWindow::on_pushButtonSend_clicked()
     solicitation["lisVer"] = ui->lineEditCodVer->text();
     solicitation["lisMat"] = ui->lineEditCodMat->text();
 
-    if(m_db.solicitation(solicitation))
-        QMessageBox::information(this, "Sucesso", "Pedido solicitado com sucesso!");
-    else {
-        QString message = "Erro: " + m_db.errorMessage();
-        qInfo() << message;
-        QMessageBox::warning(this, "Erro", message);
+    if(m_protocol == "V2"){
+        if(m_db.solicitationV2(solicitation))
+            QMessageBox::information(this, "Sucesso", "Pedido solicitado com sucesso!");
+        else {
+            QString message = "Erro: " + m_db.errorMessage();
+            qInfo() << message;
+            QMessageBox::warning(this, "Erro", message);
+        }
+    }
+    else{
+        if(m_db.solicitationV3(solicitation))
+            QMessageBox::information(this, "Sucesso", "Pedido solicitado com sucesso!");
+        else {
+            QString message = "Erro: " + m_db.errorMessage();
+            qInfo() << message;
+            QMessageBox::warning(this, "Erro", message);
+        }
     }
 
     clearFields();
@@ -76,14 +87,38 @@ void MainWindow::on_pushButtonSend_clicked()
 */
 void MainWindow::clearFields()
 {
+    if(m_protocol == "V3"){
+        ui->lineEditCodVer->clear();
+        ui->lineEditCodMat->clear();
+        ui->lineEditCodAmo->clear();
+    }
     ui->lineEditName->clear();
     ui->lineEditCodSol->clear();
-    ui->lineEditCodAmo->clear();
     ui->comboBoxSex->setCurrentIndex(0);
     ui->lineEditId->clear();
     ui->lineEditCodExam->clear();
-    ui->lineEditCodVer->clear();
-    ui->lineEditCodMat->clear();
+}
+
+/**
+ * @author Ailton Fidelix
+ * @date  02-10-2022
+ * @note  Acerta os campos conforme o protocolo
+*/
+void MainWindow::setFields(int index)
+{
+    if(index == 1){
+        ui->lineEditCodAmo->setText(" -------------------------------");
+        ui->lineEditCodVer->setText(" -------------------------------");
+        ui->lineEditCodMat->setText(" -------------------------------");
+    }
+    else{
+        ui->lineEditCodAmo->clear();
+        ui->lineEditCodVer->clear();
+        ui->lineEditCodMat->clear();
+    }
+    ui->lineEditCodAmo->setReadOnly(index == 1 ? true : false);
+    ui->lineEditCodVer->setReadOnly(index == 1 ? true : false);
+    ui->lineEditCodMat->setReadOnly(index == 1 ? true : false);
 }
 
 /**
@@ -108,7 +143,15 @@ void MainWindow::init()
 
     Config data;
 
-    QHash<QString, QString> c = data.getConfig();
+    QHash<QString, QString> c = data.getDBConfig();
+
+    m_protocol = data.getProtocol();
+
+    int index = m_protocol == "V2" ? 1 : 0;
+
+    ui->comboBoxProtocolo->setCurrentIndex(index);
+
+    setFields(index);
 
     if(m_db.connect(c["database"], c["type"], c["host"], c["username"], c["password"], c["port"])){
         message = "Conectado ao banco: " + c["database"];
@@ -118,4 +161,20 @@ void MainWindow::init()
         message = "Falha ao conectar: " + m_db.errorMessage();
         ui->statusbar->showMessage(message);
     }
+}
+
+/**
+ * @author Ailton Fidelix
+ * @date  02-10-2022
+ * @note  Seleciona protocolo
+*/
+void MainWindow::on_comboBoxProtocolo_currentIndexChanged(int index)
+{
+    setFields(index);
+
+    Config data;
+
+    m_protocol = index == 1 ? "V2" : "V3";
+
+    data.setProtocol(m_protocol);
 }

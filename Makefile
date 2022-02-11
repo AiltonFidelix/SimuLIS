@@ -52,11 +52,11 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = config.cpp \
-		database.cpp \
-		dbconfig.cpp \
-		main.cpp \
-		mainwindow.cpp qrc_resources.cpp \
+SOURCES       = src/config.cpp \
+		src/database.cpp \
+		src/dbconfig.cpp \
+		src/main.cpp \
+		src/mainwindow.cpp qrc_resources.cpp \
 		moc_config.cpp \
 		moc_database.cpp \
 		moc_dbconfig.cpp \
@@ -148,14 +148,14 @@ DIST          = img/icon.png \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		SimuLIS.pro config.h \
-		database.h \
-		dbconfig.h \
-		mainwindow.h config.cpp \
-		database.cpp \
-		dbconfig.cpp \
-		main.cpp \
-		mainwindow.cpp
+		SimuLIS.pro src/config.h \
+		src/database.h \
+		src/dbconfig.h \
+		src/mainwindow.h src/config.cpp \
+		src/database.cpp \
+		src/dbconfig.cpp \
+		src/main.cpp \
+		src/mainwindow.cpp
 QMAKE_TARGET  = SimuLIS
 DESTDIR       = 
 TARGET        = SimuLIS
@@ -340,9 +340,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents config.h database.h dbconfig.h mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents config.cpp database.cpp dbconfig.cpp main.cpp mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents dbconfig.ui mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents src/config.h src/database.h src/dbconfig.h src/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents src/config.cpp src/database.cpp src/dbconfig.cpp src/main.cpp src/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents forms/dbconfig.ui forms/mainwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -383,29 +383,30 @@ moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 compiler_moc_header_make_all: moc_config.cpp moc_database.cpp moc_dbconfig.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_config.cpp moc_database.cpp moc_dbconfig.cpp moc_mainwindow.cpp
-moc_config.cpp: config.h \
+moc_config.cpp: src/config.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ailton/Documents/Projects/My Projects/SimuLIS/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ailton/Documents/Projects/My Projects/SimuLIS' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include config.h -o moc_config.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ailton/Documents/Projects/My Projects/SimuLIS/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ailton/Documents/Projects/My Projects/SimuLIS' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/config.h -o moc_config.cpp
 
-moc_database.cpp: database.h \
+moc_database.cpp: src/database.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ailton/Documents/Projects/My Projects/SimuLIS/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ailton/Documents/Projects/My Projects/SimuLIS' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include database.h -o moc_database.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ailton/Documents/Projects/My Projects/SimuLIS/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ailton/Documents/Projects/My Projects/SimuLIS' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/database.h -o moc_database.cpp
 
-moc_dbconfig.cpp: dbconfig.h \
-		config.h \
+moc_dbconfig.cpp: src/dbconfig.h \
+		src/database.h \
+		src/config.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ailton/Documents/Projects/My Projects/SimuLIS/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ailton/Documents/Projects/My Projects/SimuLIS' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dbconfig.h -o moc_dbconfig.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ailton/Documents/Projects/My Projects/SimuLIS/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ailton/Documents/Projects/My Projects/SimuLIS' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/dbconfig.h -o moc_dbconfig.cpp
 
-moc_mainwindow.cpp: mainwindow.h \
-		database.h \
-		dbconfig.h \
-		config.h \
+moc_mainwindow.cpp: src/mainwindow.h \
+		src/database.h \
+		src/dbconfig.h \
+		src/config.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ailton/Documents/Projects/My Projects/SimuLIS/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ailton/Documents/Projects/My Projects/SimuLIS' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/ailton/Documents/Projects/My Projects/SimuLIS/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/ailton/Documents/Projects/My Projects/SimuLIS' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -414,13 +415,13 @@ compiler_moc_source_clean:
 compiler_uic_make_all: ui_dbconfig.h ui_mainwindow.h
 compiler_uic_clean:
 	-$(DEL_FILE) ui_dbconfig.h ui_mainwindow.h
-ui_dbconfig.h: dbconfig.ui \
+ui_dbconfig.h: forms/dbconfig.ui \
 		/usr/lib/qt5/bin/uic
-	/usr/lib/qt5/bin/uic dbconfig.ui -o ui_dbconfig.h
+	/usr/lib/qt5/bin/uic forms/dbconfig.ui -o ui_dbconfig.h
 
-ui_mainwindow.h: mainwindow.ui \
+ui_mainwindow.h: forms/mainwindow.ui \
 		/usr/lib/qt5/bin/uic
-	/usr/lib/qt5/bin/uic mainwindow.ui -o ui_mainwindow.h
+	/usr/lib/qt5/bin/uic forms/mainwindow.ui -o ui_mainwindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -432,29 +433,30 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-config.o: config.cpp config.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o config.o config.cpp
+config.o: src/config.cpp src/config.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o config.o src/config.cpp
 
-database.o: database.cpp database.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o database.o database.cpp
+database.o: src/database.cpp src/database.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o database.o src/database.cpp
 
-dbconfig.o: dbconfig.cpp dbconfig.h \
-		config.h \
+dbconfig.o: src/dbconfig.cpp src/dbconfig.h \
+		src/database.h \
+		src/config.h \
 		ui_dbconfig.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbconfig.o dbconfig.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbconfig.o src/dbconfig.cpp
 
-main.o: main.cpp mainwindow.h \
-		database.h \
-		dbconfig.h \
-		config.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
+main.o: src/main.cpp src/mainwindow.h \
+		src/database.h \
+		src/dbconfig.h \
+		src/config.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o src/main.cpp
 
-mainwindow.o: mainwindow.cpp mainwindow.h \
-		database.h \
-		dbconfig.h \
-		config.h \
+mainwindow.o: src/mainwindow.cpp src/mainwindow.h \
+		src/database.h \
+		src/dbconfig.h \
+		src/config.h \
 		ui_mainwindow.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o src/mainwindow.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
