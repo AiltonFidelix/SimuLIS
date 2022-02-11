@@ -7,7 +7,7 @@ DbConfig::DbConfig(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    m_data = m_config.getConfig();
+    m_data = m_config.getDBConfig();
 
     ui->lineEditUser->setText(m_data["username"]);
     ui->lineEditPass->setText(m_data["password"]);
@@ -68,7 +68,7 @@ void DbConfig::on_pushButtonSave_clicked()
     m_data["host"] = ui->lineEditHost->text();
     m_data["database"] = ui->lineEditDb->text();
 
-    if(m_config.setConfig(m_data))
+    if(m_config.setDBConfig(m_data))
         QMessageBox::information(this, "Sucesso", "Configurações salvas com sucesso!");
     else {
         QMessageBox::warning(this, "Erro", "Falha ao salvar configurações!");

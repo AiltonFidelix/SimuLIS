@@ -12,9 +12,11 @@ class Config : public QObject
 public:
     explicit Config(QObject *parent = nullptr);
 
-    bool setConfig(const QHash<QString, QString>& data);
+    bool setDBConfig(const QHash<QString, QString>& data);
+    void setProtocol(const QString protocol);
 
-    QHash<QString, QString> getConfig();
+    QHash<QString, QString> getDBConfig();
+    QString getProtocol();
 
 signals:
 

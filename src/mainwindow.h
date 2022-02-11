@@ -28,7 +28,11 @@ private slots:
 
     void clearFields();
 
+    void setFields(int index);
+
     void on_actionBanco_de_Dados_triggered();
+
+    void on_comboBoxProtocolo_currentIndexChanged(int index);
 
 private:
     void init();
@@ -36,5 +40,6 @@ private:
 private:
     Ui::MainWindow *ui;
     DataBase m_db;
+    QString m_protocol;
 };
 #endif // MAINWINDOW_H

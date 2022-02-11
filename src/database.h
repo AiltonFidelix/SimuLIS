@@ -25,7 +25,9 @@ public:
 
     bool isConnected();
 
-    bool solicitation(const QHash<QString, QString>& data);
+    bool solicitationV2(const QHash<QString, QString>& data);
+
+    bool solicitationV3(const QHash<QString, QString>& data);
 
     bool cleanTables();
 

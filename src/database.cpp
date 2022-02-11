@@ -60,12 +60,46 @@ bool DataBase::isConnected()
 
 /**
  * @author Ailton Fidelix
+ * @date  02-07-2022
+ * @note  Função para solicitação de exames ao Lwsde2
+ * @param data Dados da solicitação
+ * @return Retorna se houve sucesso ao executar a query
+*/
+bool DataBase::solicitationV2(const QHash<QString, QString> &data)
+{
+    QSqlQuery query;
+
+    QString sql(  "INSERT INTO lws_comandos VALUES "
+                  "("
+                  ":idCom, 1, "
+                  "'01990001D02    SP1K E', "
+                  "':sol|:name|:sex||||COMENTARIOS|1|:lisEx^1', "
+                  "1)");
+
+    sql.replace(":name", data["name"]);
+    sql.replace(":sex", data["sex"]);
+    sql.replace(":idCom", data["idCom"]);
+    sql.replace(":sol", data["sol"]);
+    sql.replace(":lisEx", data["lisEx"]);
+
+    query.prepare(sql);
+
+    bool exec = query.exec();
+
+    if(!exec)
+        m_errorMessage = query.lastError().text();
+
+    return exec;
+}
+
+/**
+ * @author Ailton Fidelix
  * @date  01-25-2022
  * @note  Função para solicitação de exames ao Lwsde3
  * @param data Dados da solicitação
  * @return Retorna se houve sucesso ao executar a query
 */
-bool DataBase::solicitation(const QHash<QString, QString>& data)
+bool DataBase::solicitationV3(const QHash<QString, QString>& data)
 {
     QSqlQuery query;
 
@@ -170,7 +204,6 @@ bool DataBase::cleanTables()
     query.prepare(sql);
 
     bool ok = query.exec();
-
 
     if(!ok)
         m_errorMessage = query.lastError().text();
