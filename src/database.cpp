@@ -38,8 +38,6 @@ bool DataBase::connect(const QString& database,
     else
         db.setPort(port.toInt());
 
-    //db.setPassword("dDeiVH");
-
     bool open = db.open();
 
     if(!open)

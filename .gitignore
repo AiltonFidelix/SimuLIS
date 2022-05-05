@@ -1,0 +1,6 @@
+
+*.o*
+.qmake.stash
+Makefile
+SimuLIS
+SimuLIS.pro.user
