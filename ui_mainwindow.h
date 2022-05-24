@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.8
+** Created by: Qt User Interface Compiler version 5.15.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -394,29 +394,29 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "SimuLIS", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "SimuLIS", nullptr));
         MainWindow->setWindowFilePath(QString());
-        actionBanco_de_Dados->setText(QApplication::translate("MainWindow", "Banco de Dados", nullptr));
-        actionSobre->setText(QApplication::translate("MainWindow", "Sobre", nullptr));
-        labelProtocolo->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Usar protocolo:    </span></p></body></html>", nullptr));
-        comboBoxProtocolo->setItemText(0, QApplication::translate("MainWindow", "LWSDE3", nullptr));
-        comboBoxProtocolo->setItemText(1, QApplication::translate("MainWindow", "LWSDE2", nullptr));
+        actionBanco_de_Dados->setText(QCoreApplication::translate("MainWindow", "Banco de Dados", nullptr));
+        actionSobre->setText(QCoreApplication::translate("MainWindow", "Sobre", nullptr));
+        labelProtocolo->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Usar protocolo:    </span></p></body></html>", nullptr));
+        comboBoxProtocolo->setItemText(0, QCoreApplication::translate("MainWindow", "LWSDE3", nullptr));
+        comboBoxProtocolo->setItemText(1, QCoreApplication::translate("MainWindow", "LWSDE2", nullptr));
 
-        labelData->setText(QApplication::translate("MainWindow", "<b>Dados da solicita\303\247\303\243o</b>", nullptr));
-        labelName->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Nome paciente:</span></p></body></html>", nullptr));
-        labelSex->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Sexo:</span></p></body></html>", nullptr));
-        comboBoxSex->setItemText(0, QApplication::translate("MainWindow", "M", nullptr));
-        comboBoxSex->setItemText(1, QApplication::translate("MainWindow", "F", nullptr));
+        labelData->setText(QCoreApplication::translate("MainWindow", "<b>Dados da solicita\303\247\303\243o</b>", nullptr));
+        labelName->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Nome paciente:</span></p></body></html>", nullptr));
+        labelSex->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Sexo:</span></p></body></html>", nullptr));
+        comboBoxSex->setItemText(0, QCoreApplication::translate("MainWindow", "M", nullptr));
+        comboBoxSex->setItemText(1, QCoreApplication::translate("MainWindow", "F", nullptr));
 
-        labelId->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">ID solicita\303\247\303\243o: </span></p></body></html>", nullptr));
-        labelCodSol->setText(QApplication::translate("MainWindow", "<b>C\303\263d. Solicita\303\247\303\243o:</b>", nullptr));
-        label_3->setText(QApplication::translate("MainWindow", "<b>C\303\263d. Amostra:</b>", nullptr));
-        labelCodExam->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">C\303\263d. Exame LIS:</span></p></body></html>", nullptr));
-        label->setText(QApplication::translate("MainWindow", "<b>C\303\263d. Vers\303\243o LIS:</b>", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "<b>C\303\263d. Material LIS:</b>", nullptr));
-        pushButtonSend->setText(QApplication::translate("MainWindow", "Solicitar Exame", nullptr));
-        menuConfigura_es->setTitle(QApplication::translate("MainWindow", "Configura\303\247\303\265es", nullptr));
-        menuSobre->setTitle(QApplication::translate("MainWindow", "Sobre", nullptr));
+        labelId->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">ID solicita\303\247\303\243o: </span></p></body></html>", nullptr));
+        labelCodSol->setText(QCoreApplication::translate("MainWindow", "<b>C\303\263d. Solicita\303\247\303\243o:</b>", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "<b>C\303\263d. Amostra:</b>", nullptr));
+        labelCodExam->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">C\303\263d. Exame LIS:</span></p></body></html>", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "<b>C\303\263d. Vers\303\243o LIS:</b>", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "<b>C\303\263d. Material LIS:</b>", nullptr));
+        pushButtonSend->setText(QCoreApplication::translate("MainWindow", "Solicitar Exame", nullptr));
+        menuConfigura_es->setTitle(QCoreApplication::translate("MainWindow", "Configura\303\247\303\265es", nullptr));
+        menuSobre->setTitle(QCoreApplication::translate("MainWindow", "Sobre", nullptr));
     } // retranslateUi
 
 };

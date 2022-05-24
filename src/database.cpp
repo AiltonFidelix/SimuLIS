@@ -209,3 +209,33 @@ bool DataBase::cleanTables()
     return ok;
 }
 
+/**
+ * @author Ailton Fidelix
+ * @date  05-23-2022
+ * @note  Pega o ID do banco Lwsde3
+ * @return Retorna um ID disponível para incluir no lwsde3
+*/
+int DataBase::getIDs()
+{
+    QVector<int> ids;
+    int id = 1;
+    bool inRange = false;
+    QSqlQuery query("select id from lws_com_pacientes");
+
+    while(query.next()){
+        ids.append(query.value(0).toInt());
+    }
+
+    for(int i = 1; i < ids.last(); i++){
+        if(i != ids[i - 1]){
+            id = i;
+            inRange = true;
+            break;
+        }
+    }
+
+    if(!inRange)
+        id = ids.last() + 1;
+    return id;
+}
+

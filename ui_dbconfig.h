@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dbconfig.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.8
+** Created by: Qt User Interface Compiler version 5.15.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -224,19 +224,19 @@ public:
 
     void retranslateUi(QDialog *DbConfig)
     {
-        DbConfig->setWindowTitle(QApplication::translate("DbConfig", "Configura\303\247\303\265es", nullptr));
-        label->setText(QApplication::translate("DbConfig", "Banco de Dados", nullptr));
-        labelCon->setText(QApplication::translate("DbConfig", "Conex\303\243o:", nullptr));
-        comboBoxCom->setItemText(0, QApplication::translate("DbConfig", "Postgres", nullptr));
-        comboBoxCom->setItemText(1, QApplication::translate("DbConfig", "Oracle", nullptr));
+        DbConfig->setWindowTitle(QCoreApplication::translate("DbConfig", "Configura\303\247\303\265es", nullptr));
+        label->setText(QCoreApplication::translate("DbConfig", "Banco de Dados", nullptr));
+        labelCon->setText(QCoreApplication::translate("DbConfig", "Conex\303\243o:", nullptr));
+        comboBoxCom->setItemText(0, QCoreApplication::translate("DbConfig", "Postgres", nullptr));
+        comboBoxCom->setItemText(1, QCoreApplication::translate("DbConfig", "Oracle", nullptr));
 
-        labelUser->setText(QApplication::translate("DbConfig", "Usu\303\241rio:", nullptr));
-        labelPass->setText(QApplication::translate("DbConfig", "Senha:", nullptr));
-        labelHost->setText(QApplication::translate("DbConfig", "Host:", nullptr));
-        labelDb->setText(QApplication::translate("DbConfig", "Banco:", nullptr));
-        pushButtonClean->setText(QApplication::translate("DbConfig", "Limpar banco", nullptr));
-        pushButtonSave->setText(QApplication::translate("DbConfig", "Salvar", nullptr));
-        pushButtonCancel->setText(QApplication::translate("DbConfig", "Cancelar", nullptr));
+        labelUser->setText(QCoreApplication::translate("DbConfig", "Usu\303\241rio:", nullptr));
+        labelPass->setText(QCoreApplication::translate("DbConfig", "Senha:", nullptr));
+        labelHost->setText(QCoreApplication::translate("DbConfig", "Host:", nullptr));
+        labelDb->setText(QCoreApplication::translate("DbConfig", "Banco:", nullptr));
+        pushButtonClean->setText(QCoreApplication::translate("DbConfig", "Limpar banco", nullptr));
+        pushButtonSave->setText(QCoreApplication::translate("DbConfig", "Salvar", nullptr));
+        pushButtonCancel->setText(QCoreApplication::translate("DbConfig", "Cancelar", nullptr));
     } // retranslateUi
 
 };

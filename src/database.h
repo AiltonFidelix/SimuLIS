@@ -9,6 +9,7 @@
 #include <QVariant>
 #include <QHash>
 #include <QDebug>
+#include <QVector>
 
 class DataBase : public QObject
 {
@@ -22,15 +23,11 @@ public:
                  const QString& username,
                  const QString& password,
                  const QString& port);
-
     bool isConnected();
-
     bool solicitationV2(const QHash<QString, QString>& data);
-
     bool solicitationV3(const QHash<QString, QString>& data);
-
     bool cleanTables();
-
+    int getIDs();
     QString errorMessage() {return m_errorMessage;}
 
 private:
