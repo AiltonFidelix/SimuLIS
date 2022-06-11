@@ -42,3 +42,5 @@ RESOURCES += \
 
 DISTFILES += \
     img/icon.png
+
+OBJECTS_DIR += bin/
