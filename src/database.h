@@ -9,6 +9,7 @@
 #include <QVariant>
 #include <QHash>
 #include <QDebug>
+#include <QRandomGenerator>
 
 class DataBase : public QObject
 {
@@ -16,29 +17,24 @@ class DataBase : public QObject
 public:
     explicit DataBase(QObject *parent = nullptr);
 
-    bool connect(const QString& database,
-                 const QString& type,
-                 const QString& host,
-                 const QString& username,
-                 const QString& password,
-                 const QString& port);
-
+    bool connect(const QString &database,
+                 const QString &type,
+                 const QString &host,
+                 const QString &username,
+                 const QString &password,
+                 const QString &port);
     bool isConnected();
-
-    bool solicitationV2(const QHash<QString, QString>& data);
-
-    bool solicitationV3(const QHash<QString, QString>& data);
-
+    bool solicitationV2(const QHash<QString, QString> &data);
+    bool solicitationV3(const QHash<QString, QString> &data);
+    int getIDs();
     bool cleanTables();
-
-    QString errorMessage() {return m_errorMessage;}
+    QString errorMessage() { return m_errorMessage; }
 
 private:
     QSqlDatabase db;
     QString m_errorMessage;
 
 signals:
-
 };
 
 #endif // DATABASE_H
