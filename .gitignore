@@ -1,6 +1,14 @@
-
-*.o*
 .qmake.stash
+.vscode
+.qtc_clangd
+
 Makefile
 SimuLIS
 SimuLIS.pro.user
+
+build
+
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h

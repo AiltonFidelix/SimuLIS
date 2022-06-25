@@ -23,9 +23,7 @@ protected:
 
 private slots:
     void on_pushButtonCancel_clicked();
-
     void on_pushButtonSave_clicked();
-
     void on_pushButtonClean_clicked();
 
 private:

@@ -20,13 +20,15 @@ SOURCES += \
     src/database.cpp \
     src/dbconfig.cpp \
     src/main.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/names.cpp
 
 HEADERS += \
     src/config.h \
     src/database.h \
     src/dbconfig.h \
-    src/mainwindow.h
+    src/mainwindow.h \
+    src/names.h
 
 FORMS += \
     forms/dbconfig.ui \
@@ -42,3 +44,5 @@ RESOURCES += \
 
 DISTFILES += \
     img/icon.png
+
+OBJECTS_DIR += build/

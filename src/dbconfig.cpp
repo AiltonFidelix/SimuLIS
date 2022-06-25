@@ -1,9 +1,8 @@
 #include "dbconfig.h"
 #include "ui_dbconfig.h"
 
-DbConfig::DbConfig(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::DbConfig)
+DbConfig::DbConfig(QWidget *parent) : QDialog(parent),
+                                      ui(new Ui::DbConfig)
 {
     ui->setupUi(this);
 
@@ -14,12 +13,12 @@ DbConfig::DbConfig(QWidget *parent) :
     ui->lineEditHost->setText(m_data["host"]);
     ui->lineEditDb->setText(m_data["database"]);
 
-    if(m_data["type"] == "QOCI")
+    if (m_data["type"] == "QOCI")
         ui->comboBoxCom->setCurrentIndex(1);
-    else {
+    else
+    {
         ui->comboBoxCom->setCurrentIndex(0);
     }
-
 }
 
 DbConfig::~DbConfig()
@@ -30,7 +29,8 @@ DbConfig::~DbConfig()
 void DbConfig::changeEvent(QEvent *e)
 {
     QDialog::changeEvent(e);
-    switch (e->type()) {
+    switch (e->type())
+    {
     case QEvent::LanguageChange:
         ui->retranslateUi(this);
         break;
@@ -43,7 +43,7 @@ void DbConfig::changeEvent(QEvent *e)
  * @author Ailton Fidelix
  * @date  01-27-2022
  * @note  Fecha configurações
-*/
+ */
 void DbConfig::on_pushButtonCancel_clicked()
 {
     close();
@@ -53,11 +53,11 @@ void DbConfig::on_pushButtonCancel_clicked()
  * @author Ailton Fidelix
  * @date  01-27-2022
  * @note  Salva os dados de configurações do banco no json
-*/
+ */
 void DbConfig::on_pushButtonSave_clicked()
 {
-    if(ui->lineEditUser->text() == "" || ui->lineEditPass->text()  == ""
-            || ui->lineEditHost->text() == "" || ui->lineEditDb->text() == ""){
+    if (ui->lineEditUser->text() == "" || ui->lineEditPass->text() == "" || ui->lineEditHost->text() == "" || ui->lineEditDb->text() == "")
+    {
         QMessageBox::warning(this, "Erro", "Por favor preencha todos os campos!");
         return;
     }
@@ -68,9 +68,10 @@ void DbConfig::on_pushButtonSave_clicked()
     m_data["host"] = ui->lineEditHost->text();
     m_data["database"] = ui->lineEditDb->text();
 
-    if(m_config.setDBConfig(m_data))
+    if (m_config.setDBConfig(m_data))
         QMessageBox::information(this, "Sucesso", "Configurações salvas com sucesso!");
-    else {
+    else
+    {
         QMessageBox::warning(this, "Erro", "Falha ao salvar configurações!");
     }
     close();
@@ -80,27 +81,27 @@ void DbConfig::on_pushButtonSave_clicked()
  * @author Ailton Fidelix
  * @date  02-02-2022
  * @note  Limpa todo o banco de dados
-*/
+ */
 void DbConfig::on_pushButtonClean_clicked()
-{   /*
-    QMessageBox msgBox;
-    msgBox.setWindowTitle("Atenção");
-    msgBox.setText("Esse operação irá limpar todos os dados do banco. Deseja continuar?");
-    msgBox.setStandardButtons(QMessageBox::Cancel | QMessageBox::Ok);
-    msgBox.setDefaultButton(QMessageBox::Cancel);
-    int ret = msgBox.exec();
+{ /*
+  QMessageBox msgBox;
+  msgBox.setWindowTitle("Atenção");
+  msgBox.setText("Esse operação irá limpar todos os dados do banco. Deseja continuar?");
+  msgBox.setStandardButtons(QMessageBox::Cancel | QMessageBox::Ok);
+  msgBox.setDefaultButton(QMessageBox::Cancel);
+  int ret = msgBox.exec();
 
-    if(ret == QMessageBox::Ok){
+  if(ret == QMessageBox::Ok){
 
-        DataBase m_db;
+      DataBase m_db;
 
-        if(m_db.cleanTables())
-            QMessageBox::information(this, "Sucesso", "Banco limpo com sucesso!");
-        else {
-            QString message = "Erro: " + m_db.errorMessage();
-            QMessageBox::warning(this, "Erro", message);
-        }
-    }
-    */
+      if(m_db.cleanTables())
+          QMessageBox::information(this, "Sucesso", "Banco limpo com sucesso!");
+      else {
+          QString message = "Erro: " + m_db.errorMessage();
+          QMessageBox::warning(this, "Erro", message);
+      }
+  }
+  */
     QMessageBox::warning(this, "Ops", "Essa funcionalidade ainda não foi implementada.\n Sorry!");
 }
