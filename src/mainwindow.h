@@ -5,9 +5,11 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QHash>
+#include <QRandomGenerator>
 #include "database.h"
 #include "dbconfig.h"
 #include "config.h"
+#include "names.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,16 +25,13 @@ public:
 
 private slots:
     void on_actionSobre_triggered();
-
     void on_pushButtonSend_clicked();
-
     void clearFields();
-
     void setFields(int index);
-
     void on_actionBanco_de_Dados_triggered();
-
     void on_comboBoxProtocolo_currentIndexChanged(int index);
+    void on_pushButtonGenerator_clicked();
+    void on_pushButtonClearData_clicked();
 
 private:
     void init();

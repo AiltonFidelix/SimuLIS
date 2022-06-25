@@ -75,7 +75,6 @@ void MainWindow::on_pushButtonSend_clicked()
             QMessageBox::warning(this, "Erro", message);
         }
     }
-
     clearFields();
 }
 
@@ -170,10 +169,36 @@ void MainWindow::init()
 void MainWindow::on_comboBoxProtocolo_currentIndexChanged(int index)
 {
     setFields(index);
-
     Config data;
-
     m_protocol = index == 1 ? "V2" : "V3";
-
     data.setProtocol(m_protocol);
 }
+
+void MainWindow::on_pushButtonGenerator_clicked()
+{
+    int index = QRandomGenerator::global()->bounded(2);
+    short int gender = index;
+    Names n;
+    QString name = n.getName(gender);
+
+    int id = m_db.getID();
+
+    QString codSol;
+    for(int i = 0; i < 4; i++)
+        codSol += QString::number(QRandomGenerator::global()->bounded(10, 99));
+    QString codAmo;
+    for(int i = 0; i < 4; i++)
+        codAmo += QString::number(QRandomGenerator::global()->bounded(10, 99));
+
+    ui->lineEditName->setText(name);
+    ui->lineEditId->setText(QString::number(id));
+    ui->lineEditCodSol->setText(codSol);
+    ui->lineEditCodAmo->setText(codAmo);
+    ui->comboBoxSex->setCurrentIndex(gender);
+}
+
+void MainWindow::on_pushButtonClearData_clicked()
+{
+    emit clearFields();
+}
+

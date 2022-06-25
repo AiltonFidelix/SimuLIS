@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>608</width>
+    <width>692</width>
     <height>439</height>
    </rect>
   </property>
@@ -183,6 +183,20 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonGenerator">
+          <property name="text">
+           <string>Gerar Dados</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonClearData">
+          <property name="text">
+           <string>Limpar Dados</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -642,8 +656,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>608</width>
-     <height>22</height>
+     <width>692</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuConfigura_es">

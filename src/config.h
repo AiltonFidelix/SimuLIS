@@ -17,9 +17,6 @@ public:
 
     QHash<QString, QString> getDBConfig();
     QString getProtocol();
-
-signals:
-
 };
 
 #endif // CONFIG_H

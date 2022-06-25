@@ -5,6 +5,11 @@ DataBase::DataBase(QObject *parent) : QObject(parent)
     // Do nothing
 }
 
+DataBase::~DataBase()
+{
+    db.close();
+}
+
 /**
  * @author Ailton Fidelix
  * @date  01-25-2022
@@ -24,11 +29,17 @@ bool DataBase::connect(const QString& database,
                        const QString& password,
                        const QString& port)
 {
+
+    QCryptographicHash md5(QCryptographicHash::Md5);
+    md5.addData(password.toLatin1());
+    QString dbPassword(md5.result().toBase64());
+    dbPassword = dbPassword.mid(dbPassword.size()/2, 6);
+
     db = QSqlDatabase::addDatabase(type);
     db.setHostName(host);
     db.setDatabaseName(database);
     db.setUserName(username);
-    db.setPassword(password);
+    db.setPassword(dbPassword);
     if(port == ""){
         if(type == "QOCI")
             db.setPort(1521);
@@ -135,13 +146,12 @@ bool DataBase::solicitationV3(const QHash<QString, QString>& data)
                   "local,sala,tipo_amostra_lis,ponto_curva,"
                   "data_hora_coleta,material_lis,grupamento_lis,"
                   "solicitacao,nro_interno,origem,comentarios,"
-                  "info_clinicas,setor_lis"
-                  ") "
+                  "info_clinicas,setor_lis) "
                   "VALUES "
                   "("
                   ":idCom,:sol,':amo',:idCom,"
                   "NULL,NULL,NULL,0,CURRENT_TIMESTAMP,':lisMat',"
-                  "NULL,':sol',NULL,'Externo',"
+                  "NULL,':sol:idCom',NULL,'Externo',"
                   "NULL,NULL,'39'"
                   "); "
                   "INSERT INTO lws_com_solicitacao_exames "
@@ -166,7 +176,7 @@ bool DataBase::solicitationV3(const QHash<QString, QString>& data)
     sql.replace(":lisEx", data["lisEx"]);
     sql.replace(":lisVer", data["lisVer"]);
     sql.replace(":lisMat", data["lisMat"]);
-
+    qDebug() << sql;
     query.prepare(sql);
 
     bool exec = query.exec();
@@ -209,3 +219,36 @@ bool DataBase::cleanTables()
     return ok;
 }
 
+/**
+ * @author Ailton Fidelix
+ * @date  05-23-2022
+ * @note  Pega o ID do banco Lwsde3
+ * @return Retorna um ID disponível para incluir no lwsde3
+ */
+int DataBase::getID()
+{
+    QVector<int> ids;
+    int id = 1;
+    bool inRange = false;
+    QSqlQuery query("select id from lws_com_pacientes");
+
+    while (query.next())
+    {
+        ids.append(query.value(0).toInt());
+    }
+
+    if(ids.count() > 0){
+        for (int i = 1; i < ids.last(); i++)
+        {
+            if (i != ids[i - 1])
+            {
+                id = i;
+                inRange = true;
+                break;
+            }
+        }
+        if (!inRange)
+            id = ids.last() + 1;
+    }
+    return id;
+}

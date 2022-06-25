@@ -10,12 +10,14 @@
 #include <QHash>
 #include <QDebug>
 #include <QRandomGenerator>
+#include <QCryptographicHash>
 
 class DataBase : public QObject
 {
     Q_OBJECT
 public:
     explicit DataBase(QObject *parent = nullptr);
+    ~DataBase();
 
     bool connect(const QString &database,
                  const QString &type,
@@ -26,15 +28,13 @@ public:
     bool isConnected();
     bool solicitationV2(const QHash<QString, QString> &data);
     bool solicitationV3(const QHash<QString, QString> &data);
-    int getIDs();
+    int getID();
     bool cleanTables();
     QString errorMessage() { return m_errorMessage; }
 
 private:
     QSqlDatabase db;
     QString m_errorMessage;
-
-signals:
 };
 
 #endif // DATABASE_H
